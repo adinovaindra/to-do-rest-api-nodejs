@@ -1,0 +1,25 @@
+{
+  "name": "to-do-rest-api-nodejs",
+  "version": "1.0.0",
+  "description": "To-Do List REST API (Node.js + Express), backend only, tested via Postman.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adinovaindra/to-do-rest-api-nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/adinovaindra/to-do-rest-api-nodejs/issues"
+  },
+  "homepage": "https://github.com/adinovaindra/to-do-rest-api-nodejs#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
