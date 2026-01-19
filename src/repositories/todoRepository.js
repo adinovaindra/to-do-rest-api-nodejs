@@ -1,12 +1,15 @@
-const fs = require("node:fs");
-const path = require("node:path");
+import { readFileSync, writeFileSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const filePath = path.join(__dirname, "..", "data", "todos.json");
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+const filePath = join(__dirname, "..", "data", "todos.json")
 
-function getAllTodos() {
+export function getAllTodos() {
   const todos = [];
   try {
-    const rawData = fs.readFileSync(filePath, "utf-8");
+    const rawData = readFileSync(filePath, "utf-8");
     return JSON.parse(rawData);
   } catch (error) {
     console.log(error);
@@ -14,22 +17,11 @@ function getAllTodos() {
   }
 }
 
-function saveAllTodos(arrayOfObject) {
+export function saveAllTodos(arrayOfObject) {
   try {
-    fs.writeFileSync(filePath, JSON.stringify(arrayOfObject, null, 2));
+    writeFileSync(filePath, JSON.stringify(arrayOfObject, null, 2));
   } catch (error) {
     console.log(error);
   }
 }
 
-function generateID() {
-  return `id${Date.now()}`
-}
-
-console.log(generateID())
-
-module.exports = {
-  getAllTodos,
-  saveAllTodos,
-  generateID,
-};
