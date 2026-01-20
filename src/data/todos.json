@@ -3,5 +3,25 @@
     "id": "id1768833912168",
     "title": "Belajar HTML",
     "isCompleted": false
+  },
+  {
+    "id": "id1768886730904",
+    "title": "Belajar Express",
+    "isCompleted": false
+  },
+  {
+    "id": "id1768900583586",
+    "title": "Belajar JavaScript",
+    "isCompleted": false
+  },
+  {
+    "id": "id1768900593165",
+    "title": "Belajar Mewarnai",
+    "isCompleted": false
+  },
+  {
+    "id": "id1768900793046",
+    "title": "Belajar Menggambar",
+    "isCompleted": true
   }
 ]

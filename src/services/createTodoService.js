@@ -1,8 +1,8 @@
 import { getAllTodos, saveAllTodos } from "../repositories/todoRepository.js";
-import { generateID } from "../utils/generateID.js";
-import { validationError } from "../utils/validationError.js";
+import { generateID } from "../utils/generateID.js"
+import {validationError} from "../utils/validationError.js"
 
-function createTodo(payload) {
+export function createTodoService(payload) {
   const errors = {};
 
   if (!payload || typeof payload !== "object") {
@@ -33,12 +33,8 @@ function createTodo(payload) {
     isCompleted: isCompleted ?? false,
   };
 
-  todos.push(newTodo)
+  todos.push(newTodo);
   saveAllTodos(todos);
 
   return newTodo;
 }
-
-export default {
-  createTodo,
-};
