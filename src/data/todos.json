@@ -1,10 +1,5 @@
 [
   {
-    "id": "id1768833912168",
-    "title": "Belajar HTML",
-    "isCompleted": false
-  },
-  {
     "id": "id1768900593165",
     "title": "Belajar Mewarnai",
     "isCompleted": false
@@ -13,11 +8,6 @@
     "id": "id1768900793046",
     "title": "Belajar Menggambar",
     "isCompleted": true
-  },
-  {
-    "id": "id1768991260594",
-    "title": "Belajar PostgreSQL",
-    "isCompleted": false
   },
   {
     "id": "id1768991277306",
