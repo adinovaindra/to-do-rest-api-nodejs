@@ -1,9 +1,11 @@
 import { getAllTodos, saveAllTodos } from "../repositories/todoRepository.js";
-import { generateID } from "../utils/generateID.js"
-import {validationError} from "../utils/validationError.js"
+import { generateID } from "../utils/generateID.js";
+import { validationError } from "../utils/validationError.js";
 
 export function createTodoService(payload) {
   const errors = {};
+
+  const todos = getAllTodos();
 
   if (!payload || typeof payload !== "object") {
     throw validationError({
@@ -17,6 +19,12 @@ export function createTodoService(payload) {
     errors.title = "Title is required and must be a non-empty string!";
   }
 
+  for (const todo of todos) {
+    if (todo.title.toLowerCase() === title.toLowerCase()) {
+      errors.title = `Task with title '${title}' is already exist!`;
+    }
+  }
+
   if (isCompleted !== undefined && typeof isCompleted !== "boolean") {
     errors.isCompleted = "isCompleted must be a boolean if provided!";
   }
@@ -24,8 +32,6 @@ export function createTodoService(payload) {
   if (Object.keys(errors).length > 0) {
     throw validationError(errors);
   }
-
-  const todos = getAllTodos();
 
   const newTodo = {
     id: generateID(),

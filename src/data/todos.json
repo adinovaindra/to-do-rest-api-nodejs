@@ -6,7 +6,7 @@
   },
   {
     "id": "id1768900793046",
-    "title": "Belajar Menggambar",
+    "title": "Belajar MySQL",
     "isCompleted": true
   },
   {
@@ -17,6 +17,11 @@
   {
     "id": "id1768991306667",
     "title": "Belajar A320",
+    "isCompleted": false
+  },
+  {
+    "id": "id1769043777649",
+    "title": "Belajar A330",
     "isCompleted": false
   }
 ]

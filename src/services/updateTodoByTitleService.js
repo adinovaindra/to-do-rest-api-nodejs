@@ -3,8 +3,17 @@ import { validationError } from "../utils/validationError.js";
 
 export function updateTodoByTitleService(oldTitle, newTitle, newIscomplete) {
   const errors = {};
+
+  const todos = getAllTodos();
+
   if (!newTitle || typeof newTitle !== "string" || !newTitle.trim()) {
     errors.title = `Title must be filled with type of data string!`;
+  }
+
+  for (const todo of todos) {
+    if(todo.title.toLowerCase() === newTitle.toLowerCase()) {
+      errors.title = `Task with title '${newTitle}' is already exist!`;
+    }
   }
 
   if (newIscomplete !== undefined && typeof newIscomplete !== "boolean") {
@@ -16,14 +25,13 @@ export function updateTodoByTitleService(oldTitle, newTitle, newIscomplete) {
     throw validationError(errors, statusCode);
   }
 
-  const todos = getAllTodos();
-
   const todoSelected = todos.find((todo) => {
-    return todo.title === oldTitle;
+    return todo.title.toLowerCase() === oldTitle.toLowerCase();
   });
 
   if (!todoSelected) {
-    const errors = `task with title => '${oldTitle}' is not found!`;
+    const errors = {};
+    errors.title = `task with title => '${oldTitle}' is not found!`;
     const statusCode = 404;
     throw validationError(errors, statusCode);
   }
